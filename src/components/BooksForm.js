@@ -12,12 +12,13 @@ const CATEGORIES = [
 
 function createCategories() {
   return (
-    <select>
-      <label htmlFor="categories">
-        Category:
-        { CATEGORIES.map((cat) => <option value={cat}>{cat}</option>) }
-      </label>
-    </select>
+    <div>
+      <label htmlFor="categories" />
+          Category:
+      <select id="categories">
+        { CATEGORIES.map((cat, idx) => <option key={idx} value={cat}>{cat}</option>) }
+      </select>
+    </div>
   );
 }
 
