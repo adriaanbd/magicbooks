@@ -12,20 +12,14 @@ function createTableHeader() {
   );
 }
 
-function createBooks() {
-  const books = useSelector((state) => state);
-  return (
-    <tbody>
-      { books.map((book) => <Book props={book} />) }
-    </tbody>
-  );
-}
-
 function BooksList() {
+  const books = useSelector((state) => state);
   return (
     <table>
       { createTableHeader() }
-      { createBooks() }
+      <tbody>
+        { books.map((book) => <Book props={book} />) }
+      </tbody>
     </table>
   );
 }
