@@ -2,7 +2,7 @@ import React from 'react';
 import BooksList from './containers/BooksList';
 import BooksForm from './components/BooksForm';
 
-export default function App() {
+function App() {
   return (
     <div>
       <BooksList />
@@ -10,3 +10,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
