@@ -15,7 +15,9 @@ function createTableHeader() {
 function createBooks() {
   const books = useSelector((state) => state);
   return (
-    books.map((book) => <Book props={book} />)
+    <tbody>
+      { books.map((book) => <Book props={book} />) }
+    </tbody>
   );
 }
 
