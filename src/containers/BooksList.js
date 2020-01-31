@@ -13,14 +13,14 @@ function createTableHeader() {
 }
 
 function BooksList() {
-  const { books } = useSelector((state) => state);
+  const { books } = useSelector(state => state);
   return (
     <table>
       <thead>
         { createTableHeader() }
       </thead>
       <tbody>
-        { books.map((book) => (
+        { books.map(book => (
           <Book
             key={book.bookId}
             id={book.bookId}
