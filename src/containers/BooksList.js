@@ -13,12 +13,21 @@ function createTableHeader() {
 }
 
 function BooksList() {
-  const books = useSelector((state) => state);
+  const { books } = useSelector((state) => state);
   return (
     <table>
-      { createTableHeader() }
+      <thead>
+        { createTableHeader() }
+      </thead>
       <tbody>
-        { books.map((book) => <Book props={book} />) }
+        { books.map((book) => (
+          <Book
+            key={book.bookId}
+            id={book.bookId}
+            title={book.title}
+            category={book.category}
+          />
+        )) }
       </tbody>
     </table>
   );
