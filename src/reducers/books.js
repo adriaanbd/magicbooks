@@ -1,4 +1,4 @@
-const getRandId = () => {
+export const getRandId = () => {
   const randFloat = Math.random() * (100 - 0) + 0;
   return Math.floor(randFloat);
 };

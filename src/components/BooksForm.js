@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createBook } from '../actions/index';
+import { getRandId } from '../reducers/books';
 
 const CATEGORIES = [
   'Action',
@@ -11,7 +14,8 @@ const CATEGORIES = [
 ];
 
 function BooksForm() {
-  const [bookData, setBookData] = useState({ title: '', category: '' });
+  const [bookData, setBookData] = useState({ title: '', category: 'Action' });
+  const dispatch = useDispatch();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -23,8 +27,8 @@ function BooksForm() {
 
   function handleSubmit(event) {
     event.preventDefault(); // prevents browser reload
+    dispatch(createBook({ bookId: getRandId(), ...bookData }));
   }
-
   return (
     <>
       <form onSubmit={handleSubmit}>
