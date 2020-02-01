@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Book from '../components/Book';
+import { removeBook } from '../actions/index';
 
 function createTableHeader() {
   return (
@@ -14,6 +15,12 @@ function createTableHeader() {
 
 function BooksList() {
   const { books } = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  function handleRemoveBook(book) {
+    dispatch(removeBook(book));
+  }
+
   return (
     <table>
       <thead>
@@ -26,6 +33,7 @@ function BooksList() {
             id={book.bookId}
             title={book.title}
             category={book.category}
+            remove={handleRemoveBook}
           />
         )) }
       </tbody>
