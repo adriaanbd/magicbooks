@@ -23,7 +23,11 @@
       "react/jsx-filename-extension": [
           "warn", { "extensions": [".js", ".jsx"] }
       ],
+      "jsx-a11y/label-has-associated-control": "off",
+      "jsx-a11y/label-has-for": "off",
       "import/no-unresolved": "off",
-      "no-shadow": "off"
+      "no-shadow": "off",
+      "react/no-array-index-key": "off",
+      "react/forbid-prop-types": "off"
   }
 }
