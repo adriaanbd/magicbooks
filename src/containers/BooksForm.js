@@ -13,8 +13,10 @@ const CATEGORIES = [
   'Sci-Fi',
 ];
 
+const DEFAULT_STATE = { title: '', category: 'Action' };
+
 function BooksForm() {
-  const [bookData, setBookData] = useState({ title: '', category: 'Action' });
+  const [bookData, setBookData] = useState(DEFAULT_STATE);
   const dispatch = useDispatch();
 
   function handleChange(event) {
@@ -28,6 +30,7 @@ function BooksForm() {
   function handleSubmit(event) {
     event.preventDefault(); // prevents browser reload
     dispatch(createBook({ bookId: getRandId(), ...bookData }));
+    setBookData(DEFAULT_STATE);
   }
   return (
     <>
