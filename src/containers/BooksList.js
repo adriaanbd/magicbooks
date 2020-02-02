@@ -30,9 +30,7 @@ function BooksList() {
         { books.map(book => (
           <Book
             key={book.bookId}
-            id={book.bookId}
-            title={book.title}
-            category={book.category}
+            book={book}
             remove={handleRemoveBook}
           />
         )) }
