@@ -4,10 +4,10 @@ import BooksForm from '../containers/BooksForm';
 
 function App() {
   return (
-    <div>
+    <>
       <BooksList />
       <BooksForm />
-    </div>
+    </>
   );
 }
 

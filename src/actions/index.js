@@ -5,9 +5,9 @@ export function createBook(book) {
   };
 }
 
-export function removeBook(book) {
+export function removeBook(bookId) {
   return {
     type: 'REMOVE_BOOK',
-    payload: book,
+    payload: bookId,
   };
 }

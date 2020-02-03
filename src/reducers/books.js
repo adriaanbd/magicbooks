@@ -1,4 +1,4 @@
-const getRandId = () => {
+export const getRandId = () => {
   const randFloat = Math.random() * (100 - 0) + 0;
   return Math.floor(randFloat);
 };
@@ -14,7 +14,7 @@ function books(state = initialState, action) {
     case 'CREATE_BOOK':
       return [...state, payload];
     case 'REMOVE_BOOK':
-      return state.filter(book => book.bookId !== payload.bookId);
+      return state.filter(book => book.bookId !== payload);
     default:
       return state;
   }
