@@ -11,3 +11,10 @@ export function removeBook(bookId) {
     payload: bookId,
   };
 }
+
+export function changeFilter(category) {
+  return {
+    type: 'CHANGE_FILTER',
+    payload: 'category',
+  };
+}
