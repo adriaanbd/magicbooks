@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+#nav-left {
+  display: flex;
+  align-items: center;
+  margin-left: 6.25rem;
+}
+
+#nav-right {
+  margin-right: 6.25rem;
+}
+
+.navLink {
+  margin-left: 2.5rem;
+}
