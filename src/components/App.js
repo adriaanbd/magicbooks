@@ -5,13 +5,13 @@ import Nav from './Nav';
 
 function App() {
   return (
-    <>
+    <div id="panel">
       <Nav />
       <main>
         <BooksList />
         <BooksForm />
       </main>
-    </>
+    </div>
   );
 }
 

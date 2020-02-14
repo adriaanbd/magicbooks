@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab&display=swap');
+
 * {
   box-sizing: border-box;
+}
+
+#root {
+  height: 1434px;
+  margin: auto;
+  background-color: #f5f6fa;
+}
+
+#panel {
+  height: 1097px;
+  width: 1400px;
+  background-color: #fafafa;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+  margin: auto;
 }
 
 nav {
@@ -29,15 +45,85 @@ main {
 
 .bookCard {
   display: flex;
-  border: 1px solid lightgray;
+  font-family: 'Roboto Slab', serif;
+  border: solid 1px #e8e8e8;
+  margin: 1rem auto;
 }
 
 #card-left {
   width: 45%;
-  background-color: lightskyblue;
 }
 
 #card-right {
   width: 55%;
-  background-color: lightseagreen;
+}
+
+.book {
+  margin: 1rem;
+}
+
+.category {
+  margin-bottom: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  opacity: 0.5;
+  color: #121212;
+  font-weight: bold;
+}
+
+.bookActions {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #121212;
+  letter-spacing: -0.2px;
+  font-stretch: normal;
+}
+
+.bookId {
+  font-size: 14px;
+  font-weight: 300;
+  color: #4386bf;
+}
+
+#new-book {
+  color: #888888;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.18px;
+}
+
+#title {
+  width: 664px;
+  height: 45px;
+  font-size: 16px;
+}
+
+#new-book-form {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: space-between;
+}
+
+#add-book-btn {
+  font-family: 'Roboto Slab', serif;
+  width: 184px;
+  height: 45px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  color: #ffffff;
+}
+
+#category-select {
+  width: 285px;
+  height: 45px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #ffffff;
 }
