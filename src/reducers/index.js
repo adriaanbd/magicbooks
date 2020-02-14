@@ -1,9 +1,10 @@
 import { combineReducers, createStore } from 'redux';
 import books from './books';
+import filter from './filter';
 
-// for now, it will only contain the books.js reducer.
 const rootReducer = combineReducers({
   books,
+  filter,
 });
 
 const store = createStore(rootReducer);

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createBook } from '../actions/index';
 import { getRandId } from '../reducers/books';
 
-const CATEGORIES = [
+export const CATEGORIES = [
   'Action',
   'Biography',
   'History',
