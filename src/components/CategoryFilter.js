@@ -9,7 +9,7 @@ function CategoryFilter(props) {
   return (
     <label htmlFor="categories">
       Filter:
-      <select id="filter-categories" name="filter-category" value={filter} onChange={(e) => handleChangeFilter(e.target.value)}>
+      <select id="filter-categories" name="filter-category" value={filter} onChange={e => handleChangeFilter(e.target.value)}>
         { FILTER_CATEGORIES.map((cat, idx) => <option key={idx} value={cat}>{cat}</option>) }
       </select>
     </label>
