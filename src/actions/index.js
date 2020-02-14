@@ -15,6 +15,6 @@ export function removeBook(bookId) {
 export function changeFilter(category) {
   return {
     type: 'CHANGE_FILTER',
-    payload: 'category',
+    payload: category,
   };
 }
