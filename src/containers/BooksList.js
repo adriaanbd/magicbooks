@@ -1,18 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Book from '../components/Book';
-import { removeBook, changeFilter } from '../actions/index';
-import CategoryFilter from '../components/CategoryFilter';
-
-function createTableHeader() {
-  return (
-    <tr>
-      <th>Book ID</th>
-      <th>Title</th>
-      <th>Category</th>
-    </tr>
-  );
-}
+// import Book from '../components/Book';
+// import { removeBook, changeFilter } from '../actions/index';
+// import CategoryFilter from '../components/CategoryFilter';
+import { removeBook } from '../actions/index';
+import BookCard from '../components/BookCard';
 
 function BooksList() {
   const { books, filter } = useSelector(state => state);
@@ -22,9 +14,9 @@ function BooksList() {
     dispatch(removeBook(book));
   }
 
-  function handleChangeFilter(category) {
-    dispatch(changeFilter(category));
-  }
+  // function handleChangeFilter(category) {
+  //   dispatch(changeFilter(category));
+  // }
 
   function filteredBooks(category) {
     if (category === 'All') {
@@ -35,24 +27,13 @@ function BooksList() {
 
   return (
     <>
-      <CategoryFilter
-        handleChangeFilter={handleChangeFilter}
-        filter={filter}
-      />
-      <table>
-        <thead>
-          { createTableHeader() }
-        </thead>
-        <tbody>
-          { filteredBooks(filter).map(book => (
-            <Book
-              key={book.bookId}
-              book={book}
-              remove={handleRemoveBook}
-            />
-          )) }
-        </tbody>
-      </table>
+      { filteredBooks(filter).map(book => (
+        <BookCard
+          key={book.bookId}
+          book={book}
+          remove={handleRemoveBook}
+        />
+      )) }
     </>
   );
 }

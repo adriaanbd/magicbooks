@@ -22,3 +22,22 @@ nav {
 .navLink {
   margin-left: 2.5rem;
 }
+
+main {
+  margin: 2rem 6.25rem;
+}
+
+.bookCard {
+  display: flex;
+  border: 1px solid lightgray;
+}
+
+#card-left {
+  width: 45%;
+  background-color: lightskyblue;
+}
+
+#card-right {
+  width: 55%;
+  background-color: lightseagreen;
+}

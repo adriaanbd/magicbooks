@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 function Book(props) {
   const { book: { bookId, title, category }, remove } = props;
   return (
-    <tr>
-      <td>{ bookId }</td>
-      <td>{ title }</td>
-      <td>{ category }</td>
-      <td><button type="button" onClick={() => remove(bookId)}>Remove</button></td>
-    </tr>
+    <div>
+      <div>{ category }</div>
+      <div>{ title }</div>
+      <div>{ bookId }</div>
+      <div><button type="button" onClick={() => remove(bookId)}>Remove</button></div>
+    </div>
   );
 }
 

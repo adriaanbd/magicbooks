@@ -7,8 +7,10 @@ function App() {
   return (
     <>
       <Nav />
-      <BooksList />
-      <BooksForm />
+      <main>
+        <BooksList />
+        <BooksForm />
+      </main>
     </>
   );
 }
