@@ -32,26 +32,29 @@ function BooksForm() {
     dispatch(createBook({ bookId: getRandId(), ...bookData }));
     setBookData(DEFAULT_STATE);
   }
+
+  function setCategories() {
+    return [
+      ...[<option value="" selected disabled hidden>Category</option>],
+      ...CATEGORIES.map((cat, idx) => <option key={idx} value={cat}>{cat}</option>)];
+  }
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">
-          Title:
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={bookData.title}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="categories">
-          Category:
-          <select id="categories" name="category" value={bookData.category} onChange={handleChange}>
-            { CATEGORIES.map((cat, idx) => <option key={idx} value={cat}>{cat}</option>) }
-          </select>
-        </label>
-        <button type="submit">Add Book</button>
+      <h3 id="new-book">Add New Book: </h3>
+      <form onSubmit={handleSubmit} id="new-book-form">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          value={bookData.title}
+          onChange={handleChange}
+        />
+        <select id="category-select" name="category" value={bookData.category} onChange={handleChange}>
+          { setCategories() }
+        </select>
+        <button type="submit" id="add-book-btn">Add Book</button>
       </form>
     </>
   );
