@@ -12,7 +12,6 @@ function BookCard(props) {
           remove={remove}
         />
       </div>
-      <div id="card-right">Right</div>
     </div>
   );
 }
