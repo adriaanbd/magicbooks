@@ -1,9 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import Book from '../components/Book';
-// import { removeBook, changeFilter } from '../actions/index';
-// import CategoryFilter from '../components/CategoryFilter';
-import { removeBook } from '../actions/index';
+import { removeBook, changeFilter } from '../actions/index';
+import CategoryFilter from '../components/CategoryFilter';
 import BookCard from '../components/BookCard';
 
 function BooksList() {
@@ -14,9 +12,9 @@ function BooksList() {
     dispatch(removeBook(book));
   }
 
-  // function handleChangeFilter(category) {
-  //   dispatch(changeFilter(category));
-  // }
+  function handleChangeFilter(category) {
+    dispatch(changeFilter(category));
+  }
 
   function filteredBooks(category) {
     if (category === 'All') {
@@ -27,6 +25,10 @@ function BooksList() {
 
   return (
     <>
+      <CategoryFilter
+        handleChangeFilter={handleChangeFilter}
+        filter={filter}
+      />
       { filteredBooks(filter).map(book => (
         <BookCard
           key={book.bookId}
