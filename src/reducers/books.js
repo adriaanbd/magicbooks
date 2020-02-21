@@ -1,16 +1,38 @@
-export const getRandId = () => {
-  const randFloat = Math.random() * (100 - 0) + 0;
-  return Math.floor(randFloat);
-};
+import {
+  FETCH_BOOKS_BEGIN,
+  FETCH_BOOKS_SUCCESS,
+  FETCH_BOOKS_FAILURE,
+} from '../actions';
 
-const initialState = [
-  { bookId: getRandId(), title: 'Hello World', category: 'Programming' },
-  { bookId: getRandId(), title: 'Hello Redux', category: 'JavaScript' },
-];
+
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
 function books(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+    case FETCH_BOOKS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case FETCH_BOOKS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: payload.books,
+      };
+    case FETCH_BOOKS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: payload.error,
+        items: [],
+      };
     case 'CREATE_BOOK':
       return [...state, payload];
     case 'REMOVE_BOOK':

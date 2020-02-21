@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook, changeFilter } from '../actions/index';
+import {
+  removeBook,
+  changeFilter,
+  fetchBooks,
+  // fetchBooksBegin 
+} from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import BookCard from '../components/BookCard';
 
@@ -16,11 +21,22 @@ function BooksList() {
     dispatch(changeFilter(category));
   }
 
+  // function handleFetchBooks() {
+  //   dispatch(fetchBooksBegin());
+  // }
+
+  useEffect(
+    () => {
+      // handleFetchBooks();
+      fetchBooks();
+    }, [],
+  );
+
   function filteredBooks(category) {
     if (category === 'All') {
-      return books;
+      return books.items;
     }
-    return books.filter(book => book.category === category);
+    return books.items.filter(book => book.category === category);
   }
 
   return (
