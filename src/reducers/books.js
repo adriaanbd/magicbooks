@@ -2,11 +2,11 @@ import {
   FETCH_BOOKS_BEGIN,
   FETCH_BOOKS_SUCCESS,
   FETCH_BOOKS_FAILURE,
-} from '../actions';
+} from '../actions/types';
 
 
 const initialState = {
-  items: [],
+  books: [],
   loading: false,
   error: null,
 };
@@ -22,16 +22,16 @@ function books(state = initialState, action) {
       };
     case FETCH_BOOKS_SUCCESS:
       return {
-        ...state,
         loading: false,
-        items: payload.books,
+        error: null,
+        books: payload,
       };
     case FETCH_BOOKS_FAILURE:
       return {
         ...state,
         loading: false,
         error: payload.error,
-        items: [],
+        books: [],
       };
     case 'CREATE_BOOK':
       return [...state, payload];
