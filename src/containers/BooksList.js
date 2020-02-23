@@ -7,7 +7,6 @@ import {
   fetchBooksBegin,
   fetchBooksSuccess,
   fetchBooksFailure,
-  // fetchBooks, // doesnt make api call
 } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import BookCard from '../components/BookCard';
@@ -37,16 +36,12 @@ function BooksList() {
     })();
   }, []);
 
-  // useEffect(() => { // doesnt make api call
-  //   fetchBooks(dispatch);
-  // }, [books]);
-
   function filteredBooks(category) {
     const booksArray = [...books.books];
     if (category === 'All') {
       return booksArray;
     }
-    return booksArray.filter(book => book.category === category);
+    return booksArray.filter(book => book.category.toLowerCase() === category.toLowerCase());
   }
 
   return (
