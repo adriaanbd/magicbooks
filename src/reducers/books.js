@@ -4,7 +4,6 @@ import {
   FETCH_BOOKS_FAILURE,
 } from '../actions/types';
 
-
 const initialState = {
   books: [],
   loading: false,
@@ -28,15 +27,22 @@ function books(state = initialState, action) {
       };
     case FETCH_BOOKS_FAILURE:
       return {
-        ...state,
         loading: false,
         error: payload.error,
-        books: [],
+        books: [...state.books],
       };
     case 'CREATE_BOOK':
-      return [...state, payload];
+      return {
+        loading: false,
+        error: null,
+        books: [...state.books, payload],
+      };
     case 'REMOVE_BOOK':
-      return state.filter(book => book.bookId !== payload);
+      return {
+        loading: false,
+        error: null,
+        books: state.books.filter(book => book.id !== payload),
+      };
     default:
       return state;
   }

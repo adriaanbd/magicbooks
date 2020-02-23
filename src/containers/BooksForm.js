@@ -12,6 +12,11 @@ export const CATEGORIES = [
   'Sci-Fi',
 ];
 
+export const getRandId = () => {
+  const randFloat = Math.random() * (100 - 0) + 0;
+  return Math.floor(randFloat);
+};
+
 const DEFAULT_STATE = { title: '', category: 'Action' };
 
 function BooksForm() {
@@ -28,6 +33,7 @@ function BooksForm() {
 
   function handleSubmit(event) {
     event.preventDefault(); // prevents browser reload
+    bookData.id = getRandId();
     dispatch(createBook({ ...bookData }));
     setBookData(DEFAULT_STATE);
   }
