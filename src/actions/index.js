@@ -47,15 +47,3 @@ export function fetchBooksFailure(error) {
     payload: error,
   };
 }
-
-// export function fetchBooks() { // this doesn't work:
-//   return (dispatch) => {
-//     dispatch(fetchBooksBegin);
-//     try {
-//       const res = axios.get('http://localhost:3000/api/v1/books');
-//       dispatch(fetchBooksSuccess(res.data));
-//     } catch (error) {
-//       dispatch(fetchBooksFailure(error.message));
-//     }
-//   };
-// }
