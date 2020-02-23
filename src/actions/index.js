@@ -1,29 +1,32 @@
-import getBooksFromAPI from '../api';
+import {
+  CREATE_BOOK,
+  REMOVE_BOOK,
+  CHANGE_FILTER,
+  FETCH_BOOKS_BEGIN,
+  FETCH_BOOKS_SUCCESS,
+  FETCH_BOOKS_FAILURE,
+} from './types';
 
 export function createBook(book) {
   return {
-    type: 'CREATE_BOOK',
+    type: CREATE_BOOK,
     payload: book,
   };
 }
 
 export function removeBook(bookId) {
   return {
-    type: 'REMOVE_BOOK',
+    type: REMOVE_BOOK,
     payload: bookId,
   };
 }
 
 export function changeFilter(category) {
   return {
-    type: 'CHANGE_FILTER',
+    type: CHANGE_FILTER,
     payload: category,
   };
 }
-
-export const FETCH_BOOKS_BEGIN = 'FETCH_BOOKS_BEGIN';
-export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
-export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 
 export function fetchBooksBegin() {
   return {
@@ -45,7 +48,14 @@ export function fetchBooksFailure(error) {
   };
 }
 
-export async function fetchBooks() {
-  const data = await getBooksFromAPI();
-  return data;
-}
+// export function fetchBooks() { // this doesn't work:
+//   return (dispatch) => {
+//     dispatch(fetchBooksBegin);
+//     try {
+//       const res = axios.get('http://localhost:3000/api/v1/books');
+//       dispatch(fetchBooksSuccess(res.data));
+//     } catch (error) {
+//       dispatch(fetchBooksFailure(error.message));
+//     }
+//   };
+// }
