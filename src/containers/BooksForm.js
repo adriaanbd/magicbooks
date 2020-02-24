@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import { createBook } from '../actions/index';
 
 export const CATEGORIES = [
@@ -33,8 +34,17 @@ function BooksForm() {
 
   function handleSubmit(event) {
     event.preventDefault(); // prevents browser reload
-    bookData.id = getRandId();
-    dispatch(createBook({ ...bookData }));
+    // dispatch createBookBegin
+    (async () => {
+      try {
+        const resp = await axios.post('http://localhost:4000/api/v1/books', { ...bookData });
+        if (resp.status === 200) {
+          dispatch(createBook({ ...resp.data }));
+        }
+      } catch (error) {
+        // dispatch error
+      }
+    })();
     setBookData(DEFAULT_STATE);
   }
 
