@@ -17,7 +17,6 @@ function BooksList() {
 
   function handleRemoveBook(book) {
     // dispatch begin
-    console.log(book);
     (async () => {
       try {
         const resp = await axios.delete(`http://localhost:4000/api/v1/books/${book}`);
@@ -25,7 +24,6 @@ function BooksList() {
           dispatch(removeBook(book));
         }
       } catch (error) {
-        console.log(error);
         // dispatch failure
       }
     })();
