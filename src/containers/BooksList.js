@@ -16,7 +16,19 @@ function BooksList() {
   const dispatch = useDispatch();
 
   function handleRemoveBook(book) {
-    dispatch(removeBook(book));
+    // dispatch begin
+    console.log(book);
+    (async () => {
+      try {
+        const resp = await axios.delete(`http://localhost:4000/api/v1/books/${book}`);
+        if (resp.status === 200) {
+          dispatch(removeBook(book));
+        }
+      } catch (error) {
+        console.log(error);
+        // dispatch failure
+      }
+    })();
   }
 
   function handleChangeFilter(category) {
