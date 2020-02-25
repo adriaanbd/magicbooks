@@ -11,7 +11,7 @@
 }
 
 #panel {
-  height: 1097px;
+  height: auto;
   width: 1400px;
   background-color: #fafafa;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
@@ -123,6 +123,7 @@ main {
   display: flex;
   font-family: 'Montserrat', sans-serif;
   justify-content: space-between;
+  padding-bottom: 2rem;
 }
 
 #add-book-btn {

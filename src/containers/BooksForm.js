@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import { createBook } from '../actions/index';
-import { getRandId } from '../reducers/books';
 
 export const CATEGORIES = [
   'Action',
@@ -12,6 +12,11 @@ export const CATEGORIES = [
   'Learning',
   'Sci-Fi',
 ];
+
+export const getRandId = () => {
+  const randFloat = Math.random() * (100 - 0) + 0;
+  return Math.floor(randFloat);
+};
 
 const DEFAULT_STATE = { title: '', category: 'Action' };
 
@@ -29,7 +34,17 @@ function BooksForm() {
 
   function handleSubmit(event) {
     event.preventDefault(); // prevents browser reload
-    dispatch(createBook({ bookId: getRandId(), ...bookData }));
+    // dispatch createBookBegin
+    (async () => {
+      try {
+        const resp = await axios.post('http://localhost:4000/api/v1/books', { ...bookData });
+        if (resp.status === 200) {
+          dispatch(createBook({ ...resp.data }));
+        }
+      } catch (error) {
+        // dispatch error
+      }
+    })();
     setBookData(DEFAULT_STATE);
   }
 
